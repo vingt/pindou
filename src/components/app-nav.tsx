@@ -29,12 +29,19 @@ type AppNavProps = {
 
 export function AppNav({ className, variant = "default" }: AppNavProps) {
   const pathname = usePathname();
-  const gap = variant === "compact" ? "gap-1" : "gap-2 sm:gap-6";
+  const gap = variant === "compact" ? "gap-0.5 sm:gap-1" : "gap-2 sm:gap-6";
+  const linkPad =
+    variant === "compact"
+      ? "shrink-0 px-2 py-1.5 text-xs sm:px-3 sm:py-1.5 sm:text-sm"
+      : "px-3 py-1.5";
 
   return (
     <nav
       className={cn(
-        "flex flex-wrap items-center font-medium tracking-tight text-sm",
+        "flex max-w-full items-center font-medium tracking-tight text-sm",
+        variant === "compact"
+          ? "flex-nowrap overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          : "flex-wrap",
         gap,
         className,
       )}
@@ -47,7 +54,8 @@ export function AppNav({ className, variant = "default" }: AppNavProps) {
             key={item.href}
             href={item.href}
             className={cn(
-              "px-3 py-1.5 transition-colors",
+              "transition-colors",
+              linkPad,
               active
                 ? "border-b-2 border-loom-primary font-bold text-loom-primary"
                 : "rounded-lg text-loom-on-surface-variant hover:bg-loom-surface-low hover:text-loom-primary",
@@ -61,7 +69,10 @@ export function AppNav({ className, variant = "default" }: AppNavProps) {
         href={FEEDBACK_FORM_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="rounded-lg px-3 py-1.5 text-loom-on-surface-variant transition-colors hover:bg-loom-surface-low hover:text-loom-primary"
+        className={cn(
+          "shrink-0 rounded-lg text-loom-on-surface-variant transition-colors hover:bg-loom-surface-low hover:text-loom-primary",
+          linkPad,
+        )}
       >
         使用反馈
       </a>

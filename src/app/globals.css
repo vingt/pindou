@@ -5,6 +5,8 @@
   /* 默认兜底；工作区/落地页以 loom 表面色为主 */
   --background: #f8f9ff;
   --foreground: #0b1c30;
+  /* 主内容最大宽度（约 1680px），与 max-w-[min(100%,var(--workspace-max))] 配合 */
+  --workspace-max: 105rem;
 }
 
 @theme inline {
@@ -32,8 +34,19 @@
   --color-loom-secondary-fixed: #e2dfff;
 }
 
+html {
+  width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   background: var(--color-loom-surface);
   color: var(--color-loom-on-surface);
   font-family: var(--font-inter), var(--font-noto-sc, system-ui), sans-serif;
+  min-width: 0;
+  width: 100%;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }

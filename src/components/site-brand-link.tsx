@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 
 type SiteBrandLinkProps = {
   subtitle: string;
   href?: string;
+  className?: string;
   /** 落地页大标题；工作区略小 */
   size?: "lg" | "md";
 };
@@ -10,7 +12,12 @@ type SiteBrandLinkProps = {
 /**
  * 落地页与工作区顶栏共用的 Logo + 标题（副标题可不同）。
  */
-export function SiteBrandLink({ subtitle, href = "/", size = "md" }: SiteBrandLinkProps) {
+export function SiteBrandLink({
+  subtitle,
+  href = "/",
+  size = "md",
+  className,
+}: SiteBrandLinkProps) {
   const titleClass =
     size === "lg"
       ? "text-xl font-black tracking-tighter"
@@ -19,7 +26,7 @@ export function SiteBrandLink({ subtitle, href = "/", size = "md" }: SiteBrandLi
   return (
     <Link
       href={href}
-      className="group flex min-w-0 items-center gap-2.5 text-left transition"
+      className={cn("group flex min-w-0 items-center gap-2.5 text-left transition", className)}
     >
       <span
         className="loom-primary-gradient flex size-9 shrink-0 items-center justify-center rounded-xl shadow-md ring-1 ring-white/30 [box-shadow:0_4px_14px_rgba(53,37,205,0.28)]"
@@ -38,7 +45,9 @@ export function SiteBrandLink({ subtitle, href = "/", size = "md" }: SiteBrandLi
         >
           拼豆图纸生成器
         </span>
-        <span className="block text-[11px] text-loom-on-surface-variant">{subtitle}</span>
+        <span className="line-clamp-1 block text-[11px] text-loom-on-surface-variant">
+          {subtitle}
+        </span>
       </span>
     </Link>
   );

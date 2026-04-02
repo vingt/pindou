@@ -287,8 +287,8 @@ export function ProjectsView() {
   };
 
   return (
-    <div className="min-h-0 flex-1 bg-transparent px-4 pb-16 pt-6 text-loom-on-surface md:px-8">
-      <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-5">
+    <div className="min-h-0 flex-1 bg-transparent px-3 pb-[max(4rem,env(safe-area-inset-bottom,0px))] pt-5 text-loom-on-surface sm:px-4 md:px-8 md:pt-6">
+      <div className="mx-auto flex w-full min-w-0 max-w-[min(100%,var(--workspace-max))] flex-col gap-5">
         <header className="mb-2 space-y-2 md:mb-4">
           <h1 className="text-2xl font-bold tracking-tight text-loom-on-surface md:text-3xl">
             创作历史
@@ -306,7 +306,7 @@ export function ProjectsView() {
         </header>
 
         {recentProjects.length > 0 ? (
-          <div className="mb-4 flex flex-wrap items-center gap-2 rounded-xl border border-loom-outline-variant/15 bg-loom-surface-lowest/90 px-4 py-3 ring-1 ring-loom-outline-variant/10">
+          <div className="mb-4 flex max-w-full flex-nowrap items-center gap-2 overflow-x-auto rounded-xl border border-loom-outline-variant/15 bg-loom-surface-lowest/90 px-3 py-3 ring-1 ring-loom-outline-variant/10 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:overflow-visible sm:px-4 [&::-webkit-scrollbar]:hidden">
             <button
               type="button"
               disabled={batchBusy}
@@ -522,7 +522,7 @@ export function ProjectsView() {
               <li>
                 <Link
                   href="/editor"
-                  className="flex min-h-[22rem] flex-col items-center justify-center rounded-xl border-4 border-dashed border-loom-outline-variant/30 bg-loom-surface-low/30 p-8 text-center transition hover:border-loom-primary/40 hover:bg-loom-surface-low/50"
+                  className="flex min-h-[min(22rem,55svh)] flex-col items-center justify-center rounded-xl border-4 border-dashed border-loom-outline-variant/30 bg-loom-surface-low/30 p-6 text-center transition hover:border-loom-primary/40 hover:bg-loom-surface-low/50 sm:min-h-[22rem] sm:p-8"
                 >
                   <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-loom-surface-container-high text-2xl text-loom-primary transition-transform group-hover:scale-110">
                     +

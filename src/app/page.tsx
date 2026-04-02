@@ -13,58 +13,58 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col bg-loom-surface text-loom-on-surface">
       <header className="fixed top-0 z-50 w-full border-b border-loom-outline-variant/20 bg-loom-surface/90 backdrop-blur-xl supports-[backdrop-filter]:bg-loom-surface/85">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-8">
-          <SiteBrandLink subtitle="照片 → 网格 → 导出" size="lg" />
-          <AppNav className="order-3 w-full justify-center lg:order-none lg:w-auto" />
+        <div className="mx-auto flex w-full min-w-0 max-w-7xl flex-wrap items-center justify-between gap-2 px-3 pb-2 pt-[max(0.75rem,env(safe-area-inset-top,0px))] sm:gap-3 sm:px-6 sm:pb-3 lg:px-8">
+          <SiteBrandLink subtitle="照片 → 网格 → 导出" size="lg" className="min-w-0 max-w-[min(100%,14rem)] sm:max-w-none" />
+          <AppNav className="order-3 w-full min-w-0 justify-start overflow-x-auto lg:order-none lg:w-auto lg:justify-center lg:overflow-visible" />
           <Link
             href="/editor"
-            className="loom-primary-gradient shrink-0 rounded-full px-5 py-2 text-sm font-semibold text-white transition active:scale-[0.98] hover:opacity-90"
+            className="loom-primary-gradient shrink-0 rounded-full px-4 py-2 text-sm font-semibold text-white transition active:scale-[0.98] hover:opacity-90 sm:px-5"
           >
             立即开始
           </Link>
         </div>
       </header>
 
-      <main className="flex-1 pt-[5.5rem] sm:pt-20 lg:pt-16">
+      <main className="flex-1 pt-[calc(5.25rem+env(safe-area-inset-top,0px))] sm:pt-[calc(5.5rem+env(safe-area-inset-top,0px))] lg:pt-[calc(4.5rem+env(safe-area-inset-top,0px))]">
         <section
-          className="relative overflow-hidden px-4 py-16 sm:px-8 sm:py-24 md:py-32 lg:py-40"
+          className="relative overflow-hidden px-3 py-12 sm:px-6 sm:py-20 md:px-8 md:py-28 lg:py-40"
           aria-labelledby="hero-heading"
         >
           <div className="pointer-events-none absolute inset-0 -z-10 loom-bead-pattern opacity-[0.12]" />
-          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-sky-100/90 px-4 py-2 text-sm font-medium text-[#4f46e5] ring-1 ring-sky-200/60">
+          <div className="mx-auto grid w-full min-w-0 max-w-7xl grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="min-w-0 space-y-6 sm:space-y-8">
+              <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-sky-100/90 px-3 py-1.5 text-xs font-medium text-[#4f46e5] ring-1 ring-sky-200/60 sm:px-4 sm:py-2 sm:text-sm">
                 <span aria-hidden>✦</span>
                 浏览器内完成，数据主要保存在本机
               </div>
               <h1
                 id="hero-heading"
-                className="font-[var(--font-manrope)] text-4xl font-black leading-[1.08] tracking-tight text-[#111827] sm:text-5xl lg:text-6xl xl:text-7xl"
+                className="font-[var(--font-manrope)] text-3xl font-black leading-[1.08] tracking-tight text-[#111827] sm:text-5xl lg:text-6xl xl:text-7xl"
               >
                 <span className="block">从照片到拼豆，</span>
                 <span className="block">从未如此简单</span>
               </h1>
-              <p className="max-w-lg text-lg leading-relaxed text-[#6b7280] md:text-xl">
+              <p className="max-w-lg text-base leading-relaxed text-[#6b7280] sm:text-lg md:text-xl">
                 选择拼豆品牌与套装色板，生成底板网格；支持编辑、沉浸逐色拼装、缺色统计与
                 PDF/PNG 导出，对照实作更省心。
               </p>
-              <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link
                   href="/editor"
-                  className="flex items-center gap-2 rounded-full bg-[#4f46e5] px-8 py-4 text-lg font-bold text-white shadow-lg shadow-indigo-500/25 transition hover:-translate-y-0.5 hover:bg-[#4338ca] hover:shadow-xl active:scale-[0.98]"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#4f46e5] px-6 py-3.5 text-base font-bold text-white shadow-lg shadow-indigo-500/25 transition hover:-translate-y-0.5 hover:bg-[#4338ca] hover:shadow-xl active:scale-[0.98] sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
                 >
                   进入编辑器
                   <span aria-hidden>→</span>
                 </Link>
                 <Link
                   href="/projects"
-                  className="rounded-full bg-[#dbeafe] px-8 py-4 text-lg font-bold text-[#1e3a5f] transition hover:bg-[#bfdbfe]"
+                  className="w-full rounded-full bg-[#dbeafe] px-6 py-3.5 text-center text-base font-bold text-[#1e3a5f] transition hover:bg-[#bfdbfe] sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
                 >
                   创作历史
                 </Link>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative min-w-0">
               <div className="absolute -right-6 -top-6 -z-10 size-32 rotate-12 rounded-[2rem] bg-loom-secondary-container/80" />
               <div className="absolute -bottom-8 -left-8 -z-10 size-48 rounded-full bg-loom-primary-fixed-dim/50" />
               <div className="relative z-10 overflow-hidden rounded-[2rem] border-4 border-white loom-ambient-shadow">
@@ -86,23 +86,23 @@ export default function HomePage() {
         </section>
 
         <section
-          className="bg-loom-surface-low px-4 py-20 sm:px-8"
+          className="bg-loom-surface-low px-3 py-14 sm:px-6 sm:py-20 md:px-8"
           aria-labelledby="features-heading"
         >
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-12 space-y-3 text-center sm:mb-16">
+          <div className="mx-auto w-full min-w-0 max-w-7xl">
+            <div className="mb-10 space-y-3 text-center sm:mb-16">
               <h2
                 id="features-heading"
-                className="font-[var(--font-manrope)] text-3xl font-black tracking-tight text-loom-on-surface md:text-4xl"
+                className="font-[var(--font-manrope)] text-2xl font-black tracking-tight text-loom-on-surface sm:text-3xl md:text-4xl"
               >
                 为实作准备的工具
               </h2>
-              <p className="mx-auto max-w-2xl text-loom-on-surface-variant">
+              <p className="mx-auto max-w-2xl px-1 text-sm text-loom-on-surface-variant sm:px-0 sm:text-base">
                 以 MARD 221 为主色母本，各品牌映射展示色号；网格内始终可对齐你手上的豆子。
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
-              <div className="group flex flex-col justify-between rounded-[2rem] bg-loom-surface-lowest p-8 transition-shadow hover:loom-ambient-shadow md:col-span-8 md:p-10">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-12">
+              <div className="group flex flex-col justify-between rounded-[1.5rem] bg-loom-surface-lowest p-6 transition-shadow hover:loom-ambient-shadow sm:rounded-[2rem] sm:p-8 md:col-span-8 md:p-10">
                 <div className="max-w-md space-y-4">
                   <div className="mb-4 flex size-14 items-center justify-center rounded-2xl bg-loom-primary/10 text-2xl text-loom-primary">
                     ◎
@@ -119,7 +119,7 @@ export default function HomePage() {
                   <span className="size-10 rounded-full bg-slate-700/90" />
                 </div>
               </div>
-              <div className="flex flex-col justify-between rounded-[2rem] bg-loom-primary p-8 text-white md:col-span-4 md:p-10">
+              <div className="flex flex-col justify-between rounded-[1.5rem] bg-loom-primary p-6 text-white sm:rounded-[2rem] sm:p-8 md:col-span-4 md:p-10">
                 <div className="space-y-4">
                   <div className="mb-4 flex size-14 items-center justify-center rounded-2xl bg-white/20 text-2xl">
                     ▦
@@ -140,7 +140,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-[2rem] bg-loom-secondary-container p-8 md:col-span-4 md:p-10">
+              <div className="rounded-[1.5rem] bg-loom-secondary-container p-6 sm:rounded-[2rem] sm:p-8 md:col-span-4 md:p-10">
                 <div className="mb-4 flex size-14 items-center justify-center rounded-2xl bg-white text-xl text-loom-secondary">
                   ◉
                 </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
                   逐色高亮画布，其余变淡；配合上一色/下一色，大批量同色拼装不易错格。
                 </p>
               </div>
-              <div className="flex flex-col gap-8 rounded-[2rem] bg-loom-surface-lowest p-8 transition-shadow hover:loom-ambient-shadow md:col-span-8 md:flex-row md:items-center md:p-10">
+              <div className="flex flex-col gap-6 rounded-[1.5rem] bg-loom-surface-lowest p-6 transition-shadow hover:loom-ambient-shadow sm:gap-8 sm:rounded-[2rem] sm:p-8 md:col-span-8 md:flex-row md:items-center md:p-10">
                 <div className="min-w-0 flex-1 space-y-4">
                   <div className="mb-4 flex size-14 items-center justify-center rounded-2xl bg-loom-secondary-fixed text-xl text-loom-primary">
                     ≡
@@ -188,31 +188,31 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden px-4 py-20 sm:px-8">
+        <section className="relative overflow-hidden px-3 py-14 sm:px-6 sm:py-20 md:px-8">
           <div
-            className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#3525cd] via-[#4338ca] to-[#4f46e5] px-6 py-14 text-center shadow-xl shadow-indigo-900/20 md:px-16 md:py-16"
+            className="relative mx-auto w-full min-w-0 max-w-4xl overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[#3525cd] via-[#4338ca] to-[#4f46e5] px-4 py-10 text-center shadow-xl shadow-indigo-900/20 sm:rounded-[2rem] sm:px-8 sm:py-14 md:px-16 md:py-16"
           >
             <div
               className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-white/15 blur-2xl"
               aria-hidden
             />
             <div className="relative z-10">
-              <h2 className="mb-4 font-[var(--font-manrope)] text-3xl font-black text-white md:text-4xl">
+              <h2 className="mb-3 font-[var(--font-manrope)] text-2xl font-black text-white sm:mb-4 sm:text-3xl md:text-4xl">
                 准备好开始一张图纸了吗？
               </h2>
-              <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/90">
+              <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/90 sm:mb-10 sm:text-lg">
                 无需安装，在浏览器中即可完成上传、生成与编辑。项目可保存到创作历史，下次继续。
               </p>
-              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+              <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
                 <Link
                   href="/editor"
-                  className="inline-flex min-w-[12rem] items-center justify-center rounded-full bg-white px-10 py-4 text-lg font-bold text-[#4f46e5] shadow-md transition hover:bg-sky-50"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-bold text-[#4f46e5] shadow-md transition hover:bg-sky-50 sm:w-auto sm:min-w-[12rem] sm:px-10 sm:py-4 sm:text-lg"
                 >
                   进入编辑器
                 </Link>
                 <Link
                   href="/projects"
-                  className="inline-flex min-w-[12rem] items-center justify-center rounded-full border-2 border-white/80 bg-white/15 px-10 py-4 text-lg font-bold text-white shadow-sm backdrop-blur-sm transition hover:border-white hover:bg-white/25"
+                  className="inline-flex w-full items-center justify-center rounded-full border-2 border-white/80 bg-white/15 px-8 py-3.5 text-base font-bold text-white shadow-sm backdrop-blur-sm transition hover:border-white hover:bg-white/25 sm:w-auto sm:min-w-[12rem] sm:px-10 sm:py-4 sm:text-lg"
                 >
                   打开创作历史
                 </Link>
@@ -222,8 +222,8 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-loom-outline-variant/20 bg-loom-surface py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 text-center sm:px-8">
+      <footer className="border-t border-loom-outline-variant/20 bg-loom-surface py-8 pb-[max(2.5rem,env(safe-area-inset-bottom,0px))] sm:py-10">
+        <div className="mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center gap-4 px-3 text-center sm:px-8">
           <div className="flex flex-wrap justify-center gap-6 text-xs text-loom-on-surface-variant">
             <span className="hover:text-loom-primary">使用条款（待补充）</span>
             <span className="hover:text-loom-primary">隐私政策（待补充）</span>

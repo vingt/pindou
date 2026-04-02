@@ -63,13 +63,13 @@ export default function SettingsPage() {
   );
 
   return (
-    <div className="mx-auto min-h-0 w-full max-w-7xl px-4 pb-20 pt-8 md:px-8">
-      <header className="mb-10 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
-        <div className="space-y-3">
-          <h1 className="font-[var(--font-manrope)] text-4xl font-black tracking-tight text-loom-on-surface md:text-5xl">
+    <div className="mx-auto min-h-0 w-full min-w-0 max-w-7xl px-3 pb-[max(5rem,env(safe-area-inset-bottom,0px))] pt-6 sm:px-4 md:px-8 md:pb-20 md:pt-8">
+      <header className="mb-8 flex flex-col justify-between gap-5 md:mb-12 md:flex-row md:items-end md:gap-6">
+        <div className="min-w-0 space-y-3">
+          <h1 className="font-[var(--font-manrope)] text-3xl font-black tracking-tight text-loom-on-surface sm:text-4xl md:text-5xl">
             设置
           </h1>
-          <div className="flex w-fit items-center gap-2 rounded-lg bg-loom-surface-low px-4 py-2 text-loom-on-surface-variant ring-1 ring-loom-outline-variant/15">
+          <div className="flex w-full max-w-full items-start gap-2 rounded-lg bg-loom-surface-low px-3 py-2 text-loom-on-surface-variant ring-1 ring-loom-outline-variant/15 sm:w-fit sm:items-center sm:px-4">
             <span aria-hidden className="text-sm">
               ◆
             </span>
@@ -80,7 +80,7 @@ export default function SettingsPage() {
         </div>
         <button
           type="button"
-          className="flex shrink-0 items-center gap-2 rounded-full bg-rose-100 px-6 py-3 text-sm font-bold text-rose-900 ring-1 ring-rose-200/80 transition hover:bg-rose-200/90"
+          className="flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-rose-100 px-5 py-3 text-sm font-bold text-rose-900 ring-1 ring-rose-200/80 transition hover:bg-rose-200/90 sm:w-auto sm:px-6"
           onClick={() => {
             if (
               window.confirm(
@@ -97,13 +97,13 @@ export default function SettingsPage() {
       </header>
 
       <div className="flex flex-col gap-8">
-        <div className="flex w-full flex-wrap gap-2 rounded-xl bg-loom-surface-low p-1.5 ring-1 ring-loom-outline-variant/10 md:w-fit">
+        <div className="-mx-1 flex w-[calc(100%+0.5rem)] max-w-none flex-nowrap gap-1.5 overflow-x-auto px-1 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:w-full sm:flex-wrap sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0 md:w-fit [&::-webkit-scrollbar]:hidden">
           {TABS.map((t) => (
             <button
               key={t.id}
               type="button"
               className={cn(
-                "rounded-lg px-6 py-3 text-sm font-semibold transition",
+                "shrink-0 rounded-lg px-4 py-2.5 text-sm font-semibold transition sm:px-6 sm:py-3",
                 tab === t.id
                   ? "bg-loom-surface-lowest text-loom-primary shadow-sm ring-1 ring-loom-outline-variant/10"
                   : "text-loom-on-surface-variant hover:text-loom-primary",

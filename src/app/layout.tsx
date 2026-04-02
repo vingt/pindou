@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Manrope, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 
@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   description: "拼豆图纸生成与编辑工具 - Phase 0",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#f8f9ff",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +40,9 @@ export default function RootLayout({
       lang="zh-CN"
       className={`${manrope.variable} ${inter.variable} ${notoSansSc.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full min-w-0 touch-manipulation flex flex-col overflow-x-clip pb-[env(safe-area-inset-bottom,0px)]">
+        {children}
+      </body>
     </html>
   );
 }

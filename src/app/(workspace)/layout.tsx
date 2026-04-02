@@ -17,11 +17,11 @@ export default function WorkspaceLayout({
   return (
     <BrandSettingsProvider>
       <WorkspaceSaveProvider status={saveStatus}>
-        <div className="flex min-h-screen flex-col bg-loom-surface">
-          <div className="sticky top-0 z-50 h-16 border-b border-loom-outline-variant/20 bg-loom-surface/90 loom-ambient-shadow backdrop-blur-xl supports-[backdrop-filter]:bg-loom-surface/80">
-            <div className="mx-auto flex h-full w-full max-w-[1680px] items-center justify-between gap-4 px-4 lg:px-6">
-              <SiteBrandLink subtitle="工作区" />
-              <AppNav variant="compact" />
+        <div className="flex min-h-screen min-w-0 flex-col bg-loom-surface">
+          <div className="sticky top-0 z-50 border-b border-loom-outline-variant/20 bg-loom-surface/90 loom-ambient-shadow backdrop-blur-xl supports-[backdrop-filter]:bg-loom-surface/80">
+            <div className="mx-auto flex min-h-14 w-full max-w-[min(100%,var(--workspace-max))] min-w-0 items-center justify-between gap-2 px-3 pt-[env(safe-area-inset-top,0px)] sm:min-h-16 sm:gap-3 sm:px-4 lg:px-6">
+              <SiteBrandLink subtitle="工作区" className="min-w-0 shrink" />
+              <AppNav variant="compact" className="min-w-0 shrink" />
             </div>
           </div>
           <div className="flex-1">{children}</div>

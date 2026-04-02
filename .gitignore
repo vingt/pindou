@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# Capacitor：Web 资源由 `npm run build:capacitor` 同步到原生工程
+/android/app/src/main/assets/public/
+
 # production
 /build
 

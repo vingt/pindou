@@ -888,22 +888,22 @@ export function EditorShell() {
     <div
       className={cn(
         "min-h-0 bg-transparent text-loom-on-surface",
-        immersiveAssembly ? "p-1 sm:p-2 lg:p-3" : "p-4 lg:p-6",
+        immersiveAssembly ? "p-1 sm:p-2 lg:p-3" : "p-2 sm:p-4 lg:p-6",
       )}
     >
       <div
         className={cn(
-          "mx-auto flex w-full flex-col gap-4",
-          immersiveAssembly ? "max-w-none" : "max-w-[1680px]",
+          "mx-auto flex w-full min-w-0 flex-col gap-4",
+          immersiveAssembly ? "max-w-none" : "max-w-[min(100%,var(--workspace-max))]",
         )}
       >
         <div
           className={cn(
-            "flex flex-wrap items-center gap-3 border-b border-loom-outline-variant/20 bg-loom-surface-lowest px-4 py-3 lg:px-8",
+            "flex flex-col gap-3 border-b border-loom-outline-variant/20 bg-loom-surface-lowest px-3 py-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 sm:px-4 lg:px-8",
             immersiveAssembly && "hidden",
           )}
         >
-          <label className="flex min-w-[10rem] flex-1 items-center gap-2 text-xs text-loom-on-surface-variant">
+          <label className="flex w-full min-w-0 flex-1 flex-col gap-1.5 text-xs text-loom-on-surface-variant sm:min-w-[10rem] sm:flex-row sm:items-center sm:gap-2">
             <span className="shrink-0 font-medium text-loom-on-surface-variant">项目名称</span>
             <input
               type="text"
@@ -917,7 +917,7 @@ export function EditorShell() {
             type="button"
             disabled={saveBusy}
             className={cn(
-              "shrink-0 rounded-xl px-4 py-2 text-xs font-medium text-white transition",
+              "w-full shrink-0 rounded-xl px-4 py-2.5 text-xs font-medium text-white transition sm:w-auto sm:py-2",
               saveBusy ? "cursor-wait bg-loom-outline-variant/60" : "loom-primary-gradient hover:opacity-90",
             )}
             onClick={() => {
@@ -943,15 +943,15 @@ export function EditorShell() {
 
         <main
           className={cn(
-            "grid min-h-0 grid-cols-1 items-stretch gap-4 lg:min-h-[calc(100dvh-5rem)] lg:gap-3",
+            "grid min-h-0 grid-cols-1 items-stretch gap-3 sm:gap-4 lg:min-h-[calc(100dvh-5rem)] lg:gap-3",
             immersiveAssembly
-              ? "min-h-[min(760px,calc(100dvh-4rem))]"
-              : "min-h-[min(760px,calc(100dvh-7rem))] lg:grid-cols-[320px_minmax(0,1fr)_340px]",
+              ? "min-h-[min(480px,calc(100dvh-5rem))] lg:min-h-[min(760px,calc(100dvh-4rem))]"
+              : "min-h-[min(400px,calc(100dvh-9rem))] lg:min-h-[min(760px,calc(100dvh-7rem))] lg:grid-cols-[minmax(240px,320px)_minmax(0,1fr)_minmax(260px,340px)]",
           )}
         >
           <aside
             className={cn(
-              "flex min-h-0 flex-col overflow-hidden border-loom-outline-variant/20 bg-loom-surface-low lg:max-h-[calc(100dvh-5rem)] lg:rounded-2xl lg:border lg:bg-loom-surface-container-low lg:shadow-sm lg:ring-1 lg:ring-loom-outline-variant/10",
+              "order-2 flex min-h-0 flex-col overflow-hidden border-loom-outline-variant/20 bg-loom-surface-low lg:order-none lg:max-h-[calc(100dvh-5rem)] lg:rounded-2xl lg:border lg:bg-loom-surface-container-low lg:shadow-sm lg:ring-1 lg:ring-loom-outline-variant/10",
               immersiveAssembly && "hidden",
             )}
           >
@@ -971,7 +971,7 @@ export function EditorShell() {
                   图源与底板
                 </p>
                 <div className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-loom-outline-variant/15">
-                <div className="relative flex aspect-square w-full max-w-[160px] flex-col items-center justify-center overflow-hidden rounded-lg border-2 border-dashed border-loom-outline-variant/35 bg-loom-surface-container shadow-inner">
+                <div className="relative mx-auto flex aspect-square w-full max-w-[min(160px,55vw)] flex-col items-center justify-center overflow-hidden rounded-lg border-2 border-dashed border-loom-outline-variant/35 bg-loom-surface-container shadow-inner sm:mx-0 sm:max-w-[160px]">
                   {sourceImageUrl ? (
                     <>
                       <img
@@ -1458,7 +1458,7 @@ export function EditorShell() {
 
           <section
             className={cn(
-              "relative flex min-h-0 min-w-0 flex-col bg-loom-surface lg:sticky lg:z-20 lg:self-start lg:overflow-hidden",
+              "relative order-1 flex min-h-0 min-w-0 flex-col bg-loom-surface lg:order-none lg:sticky lg:z-20 lg:self-start lg:overflow-hidden",
               immersiveAssembly
                 ? "lg:top-2 lg:max-h-[calc(100dvh-2.5rem)]"
                 : "lg:top-4 lg:max-h-[min(100dvh-5rem,calc(100vh-2rem))]",
@@ -1468,7 +1468,7 @@ export function EditorShell() {
             <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
               <div className="pointer-events-none absolute inset-0 -z-0 opacity-[0.14] loom-bead-pattern" aria-hidden />
               <div
-                className="absolute left-1/2 top-4 z-20 flex w-[calc(100%-1.5rem)] max-w-4xl -translate-x-1/2 flex-wrap items-center justify-center gap-1 rounded-xl border border-loom-outline-variant/20 bg-white/95 px-2 py-2 shadow-sm sm:gap-1.5 sm:px-3"
+                className="absolute left-1/2 top-4 z-20 flex w-[calc(100%-1.5rem)] max-w-4xl -translate-x-1/2 flex-nowrap items-center justify-start gap-1 overflow-x-auto overflow-y-hidden rounded-xl border border-loom-outline-variant/20 bg-white/95 px-2 py-2 shadow-sm [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:justify-center sm:overflow-visible sm:gap-1.5 sm:px-3 [&::-webkit-scrollbar]:hidden"
                 role="toolbar"
                 aria-label="画布工具"
               >
@@ -1663,11 +1663,11 @@ export function EditorShell() {
 
               <div
                 className={cn(
-                  "relative z-0 mx-2 mb-2 mt-[4.25rem] flex min-h-0 flex-1 flex-col sm:mx-3",
+                  "relative z-0 mx-1.5 mb-2 mt-[4.25rem] flex min-h-0 flex-1 flex-col sm:mx-3",
                   immersiveAssembly && "mt-[8rem]",
                   immersiveAssembly
-                    ? "min-h-[min(60vh,calc(100dvh-14rem))] lg:min-h-[calc(100dvh-12rem)]"
-                    : "min-h-[min(52vh,520px)]",
+                    ? "min-h-[min(50svh,calc(100dvh-14rem))] lg:min-h-[calc(100dvh-12rem)]"
+                    : "min-h-[min(42svh,min(420px,calc(100dvh-12rem)))] sm:min-h-[min(52vh,520px)]",
                 )}
               >
                 <div className="min-h-0 flex-1 overflow-auto rounded-lg border border-loom-outline-variant/20 bg-white shadow-sm">
@@ -1785,7 +1785,7 @@ export function EditorShell() {
 
           <aside
             className={cn(
-              "flex min-h-0 flex-col overflow-hidden border-loom-outline-variant/20 bg-loom-surface-low lg:max-h-[calc(100dvh-5rem)] lg:rounded-2xl lg:border lg:bg-loom-surface-container-low lg:shadow-sm lg:ring-1 lg:ring-loom-outline-variant/10",
+              "order-3 flex min-h-0 flex-col overflow-hidden border-loom-outline-variant/20 bg-loom-surface-low lg:order-none lg:max-h-[calc(100dvh-5rem)] lg:rounded-2xl lg:border lg:bg-loom-surface-container-low lg:shadow-sm lg:ring-1 lg:ring-loom-outline-variant/10",
               immersiveAssembly && "hidden",
             )}
           >
@@ -2131,7 +2131,7 @@ export function EditorShell() {
           <div
             role="status"
             aria-live="polite"
-            className="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-xl bg-loom-on-surface/90 px-4 py-2 text-sm text-white shadow-lg"
+            className="pointer-events-none fixed bottom-[max(1rem,env(safe-area-inset-bottom,0px))] left-1/2 z-50 max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-xl bg-loom-on-surface/90 px-4 py-2 text-center text-sm text-white shadow-lg"
           >
             {editorToast}
           </div>
